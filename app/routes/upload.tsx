@@ -47,7 +47,7 @@ const Upload = () => {
         setStatusText('Analyzing...');
 
         const feedback = await ai.feedback(
-            uploadedFile.path,
+            uploadedImage.path,
             prepareInstructions({ jobTitle, jobDescription })
         )
         if (!feedback) return setStatusText('Error: Failed to analyze resume');
