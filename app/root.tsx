@@ -28,6 +28,11 @@ export const meta: MetaFunction = () => {
       content:
         "AI resume analyzer,resume checker,ATS score,resume builder",
     },
+      {
+      tagName: "link",
+      rel: "canonical",
+      href: "https://resumeiq-one.vercel.app/",
+    },
   ];
 };
 export function Layout({ children }: { children: React.ReactNode }) {
