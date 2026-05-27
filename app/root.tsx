@@ -1,3 +1,5 @@
+import type { MetaFunction } from "react-router";
+
 import {
   isRouteErrorResponse,
   Links,
@@ -6,26 +8,28 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { Analytics } from "@vercel/analytics/react";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { Route } from "./+types/root";
 import "./app.css";
-import {usePuterStore} from "~/lib/puter";
-import {useEffect} from "react";
+import { usePuterStore } from "~/lib/puter";
+import { useEffect } from "react";
 
-export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
-
+export const meta: MetaFunction = () => {
+  return [
+    { title: "ResumeIQ - AI Resume Analyzer & Resume Builder" },
+    {
+      name: "description",
+      content:
+        "Analyze resumes using AI, improve ATS scores, and create better resumes with ResumeIQ.",
+    },
+    {
+      name: "keywords",
+      content:
+        "AI resume analyzer,resume checker,ATS score,resume builder",
+    },
+  ];
+};
 export function Layout({ children }: { children: React.ReactNode }) {
   const { init } = usePuterStore();
 
